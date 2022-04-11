@@ -1,5 +1,6 @@
 {
   "devDependencies": {
+    "@tailwindcss/forms": "^0.5.0",
     "tailwindcss": "^3.0.23"
   },
   "name": "contacts-manager",
@@ -21,8 +22,8 @@
     "caniuse-lite": "^1.0.30001327",
     "chalk": "^4.1.2",
     "chokidar": "^3.5.3",
-    "color-name": "^1.1.4",
     "color-convert": "^2.0.1",
+    "color-name": "^1.1.4",
     "cosmiconfig": "^7.0.1",
     "cssesc": "^3.0.0",
     "defined": "^1.0.0",
