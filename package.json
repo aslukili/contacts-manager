@@ -90,7 +90,7 @@
     "yaml": "^1.10.2"
   },
   "scripts": {
-    "build-css": "tailwindcss build -i src/styles.css -o asset/style.css"
+    "build-css": "tailwindcss build -i src/styles.css -o public/asset/style.css"
   },
   "keywords": [],
   "author": "",
