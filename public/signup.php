@@ -3,10 +3,11 @@
 
 <head>
     <link rel="stylesheet" href="./asset/style.css" />
+    <link rel="icon" href="https://brandeps.com/icon-download/C/Contacts-icon-vector-02.svg">
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login | Contacts manager</title>
+    <title>Sign Up | Contacts manager</title>
 </head>
 
 <body class="flex flex-col h-screen">
@@ -16,25 +17,25 @@
     </header>
     <main class="flex-grow items-center justify-center bg-slate-300 flex">
         <div class="shadow bg-slate-200 p-5">
-            <h1 class="font-bold mb-3">Login to get started</h1>
-            <form action="">
+            <h1 class="font-bold mb-3">sign up to get started</h1>
+            <form action="./includes/signup.inc.php" method="post">
                 <div>
                     <label for="username">username</label>
                     <br />
-                    <input type="text" id="username" class="form-input" placeholder="username" />
+                    <input type="text" id="username" name="username" class="form-input" placeholder="username" required/>
                 </div>
                 <div class="mt-3">
                     <label for="password">password</label>
                     <br />
-                    <input type="password" id="password" class="form-input" placeholder="username" />
+                    <input type="password" id="password" name="password" class="form-input" placeholder="password" required/>
                 </div>
                 <div class="mt-3">
-                    <label for="password">password verify</label>
+                    <label for="ver_password">password verify</label>
                     <br />
-                    <input type="password" id="password" class="form-input" placeholder="verify password" />
+                    <input type="password" id="ver_password" name="ver_password" class="form-input" placeholder="verify password" required/>
                 </div>
 
-                <input type="submit" class="mt-3 bg-blue-500 hover:bg-blue-700 rounded font-bold py-1 px-3 w-full" />
+                <input type="submit" name="signup" class="mt-3 bg-blue-500 hover:bg-blue-700 rounded font-bold py-1 px-3 w-full" />
             </form>
             <p class="mt-3">
                 Already have an account?

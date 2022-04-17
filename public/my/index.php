@@ -1,3 +1,9 @@
+<?php
+session_start();
+if (isset($_SESSION['username'])){
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,9 +22,9 @@
         <h1 class="text-white font-medium text-3xl">Contacts list</h1>
         <div class="p-5">
             <ul>
-                <li><a href="#" class="text-blue-300">Profile</a></li>
+                <li><a href="#" class="text-blue-300"><?php echo $_SESSION['username'];?></a></li>
                 <li><a href="./contacts/" class="text-blue-300">Contacts</a></li>
-                <li> <a href="#" class="text-blue-300">logout</a></li>
+                <li> <a href="../includes/logout.inc.php" class="text-blue-300">logout</a></li>
             </ul>
         </div>
     </header>
@@ -27,14 +33,17 @@
         <div>
             <h2>Your Profile</h2>
             <hr />
-            <p>username: <span>user</span></p>
+            <p>username: <span><?php echo $_SESSION['username'];?></span></p>
             <hr />
-            <p>Signup date: <span>monday 8 aprile 2022</span></p>
+            <p>Signup date: <span><?php echo $_SESSION['signup_date'];?></span></p>
             <hr />
-            <p>Last login: <span>monday 8 aprile 2022</span></p>
+            <p>Last login: <span><?php echo $_SESSION['last_login'];?></span></p>
         </div>
     </main>
 </body>
 
 
 </html>
+<?php
+}
+?>

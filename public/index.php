@@ -1,3 +1,10 @@
+<?php
+include './classes/dbh.class.php';
+
+$test = new Dbh();
+$test->connect();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

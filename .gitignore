@@ -1,1 +1,4 @@
 /foo.sh
+/.idea
+#ignoring db class as it contains my db connection info
+/public/classes/dbh.class.php

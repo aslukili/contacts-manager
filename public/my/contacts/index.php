@@ -17,7 +17,7 @@
             <ul>
                 <li><a href="../" class="text-blue-300">Profile</a></li>
                 <li><a href="./contacts/" class="text-blue-300">Contacts</a></li>
-                <li><a href="#" class="text-blue-300">logout</a></li>
+                <li><a href="../../includes/logout.inc.php" class="text-blue-300">logout</a></li>
             </ul>
         </div>
     </header>
@@ -30,14 +30,78 @@
         </div>
         <div>
             <h2>contact list:</h2>
-            <hr />
-            <p>no contacts yet</p>
-            <hr />
-
-
-            <!-- add contact modal -->
-
+            <!-- contacts table -->
+            <div>
+                <table class=" border-b table-auto  m-auto md:w-3/4 bg-gray-100 text-sm text-left text-gray-900">
+                    <thead>
+                        <tr>
+                            <th class="border-r">Name</th>
+                            <th class="border-r">Email</th>
+                            <th class="border-r">Phone</th>
+                            <th class="border-r">Address</th>
+                            <th class="border-r">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                            <td class="border-r">Abdeslam Loukili</td>
+                            <td class="border-r">email@youcode.ma</td>
+                            <td class="border-r">0621139797</td>
+                            <td class="border-r">Rue adrissa N13 Tanger</td>
+                            <td class="border-r">
+                                <button>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                                    </svg>
+                                </button>
+                                <button>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                    </svg>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                            <td class="border-r">Abdeslam Loukili</td>
+                            <td class="border-r">email@youcode.ma</td>
+                            <td class="border-r">0621139797</td>
+                            <td class="border-r">Rue adrissa N13 Tanger</td>
+                            <td class="border-r">
+                                <button>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                                    </svg>
+                                </button>
+                                <button>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                    </svg>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                            <td class="border-r">Abdeslam Loukili</td>
+                            <td class="border-r">email@youcode.ma</td>
+                            <td class="border-r">0621139797</td>
+                            <td class="border-r">Rue adrissa N13 Tanger</td>
+                            <td class="border-r">
+                                <button>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                                    </svg>
+                                </button>
+                                <button>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                    </svg>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
+        <!-- add contact modal -->
         <div id="authentication-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full justify-center items-center">
             <div class="relative p-4 w-full max-w-md h-full md:h-auto">
                 <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
@@ -66,7 +130,7 @@
                         </div>
                         <div>
                             <label for="adress" class="block text-sm font-medium text-gray-900 dark:text-gray-300">adress</label>
-                            <input type="text" name="adress" id="adress" placeholder="user@domain.com" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required="" />
+                            <input type="text" name="adress" id="adress" placeholder="adress" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required="" />
                         </div>
 
                         <input type="submit" value="save" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" />
