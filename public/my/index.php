@@ -6,7 +6,6 @@ if (isset($_SESSION['username'])){
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <link rel="stylesheet" href="../asset/style.css" />
     <meta charset="UTF-8" />
@@ -14,8 +13,6 @@ if (isset($_SESSION['username'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Profile</title>
 </head>
-
-
 
 <body class="flex flex-col h-screen">
     <header class="bg-slate-800 flex justify-between">
@@ -41,8 +38,6 @@ if (isset($_SESSION['username'])){
         </div>
     </main>
 </body>
-
-
 </html>
 <?php
 }

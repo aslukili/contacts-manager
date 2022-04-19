@@ -11,9 +11,8 @@
 </head>
 
 <body class="flex flex-col h-screen">
-    <header class="bg-slate-800 flex justify-between">
+    <header class="bg-slate-800 text-center">
         <h1 class="text-white font-medium text-3xl">Contacts list</h1>
-        <a href="login.php" class="text-blue-300">login</a>
     </header>
     <main class="flex-grow items-center justify-center bg-slate-300 flex">
         <div class="shadow bg-slate-200 p-5">

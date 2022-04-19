@@ -87,6 +87,7 @@ class User extends Dbh
 
             $user = $stmt->fetchAll(PDO::FETCH_OBJ);
             session_start();
+            $_SESSION["id"] = $user[0]->id;
             $_SESSION["username"] = $user[0]->username;
             $_SESSION["signup_date"] = $user[0]->signup_date;
             $_SESSION['last_login'] = date("Y-m-d h:i:sa");
@@ -104,7 +105,10 @@ class User extends Dbh
             exit();
         }
         $this->setUser($this->username, $this->userPassword);
+
     }
+
+
     public function loginUser(){
         // arrow handlers and more validation should go here!
         $this->getUser($this->username, $this->userPassword);

@@ -1,3 +1,15 @@
+<?php
+require '../../classes/dbh.class.php';
+require '../../classes/contact.class.php';
+session_start();
+if (isset($_SESSION['username'])){
+
+
+// getting the data from database
+$data = new Contact();
+$contacts = $data->fetchData($_SESSION['id']);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -43,60 +55,29 @@
                         </tr>
                     </thead>
                     <tbody>
+                    <?php
+                    foreach ($contacts as $value){?>
+
                         <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                            <td class="border-r">Abdeslam Loukili</td>
-                            <td class="border-r">email@youcode.ma</td>
-                            <td class="border-r">0621139797</td>
-                            <td class="border-r">Rue adrissa N13 Tanger</td>
+                            <td class="border-r"><?=$value->name?></td>
+                            <td class="border-r"><?=$value->email?></td>
+                            <td class="border-r"><?=$value->phone?></td>
+                            <td class="border-r"><?=$value->address?></td>
                             <td class="border-r">
-                                <button>
+                                <button onclick="document.location.href='edit-contact.php?id=<?=$value->id?>'">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                                     </svg>
                                 </button>
-                                <button>
+                                <button onclick="document.location.href='delete-contact.php?id=<?=$value->id?>'">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                                     </svg>
                                 </button>
                             </td>
                         </tr>
-                        <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                            <td class="border-r">Abdeslam Loukili</td>
-                            <td class="border-r">email@youcode.ma</td>
-                            <td class="border-r">0621139797</td>
-                            <td class="border-r">Rue adrissa N13 Tanger</td>
-                            <td class="border-r">
-                                <button>
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                                    </svg>
-                                </button>
-                                <button>
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                                    </svg>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                            <td class="border-r">Abdeslam Loukili</td>
-                            <td class="border-r">email@youcode.ma</td>
-                            <td class="border-r">0621139797</td>
-                            <td class="border-r">Rue adrissa N13 Tanger</td>
-                            <td class="border-r">
-                                <button>
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                                    </svg>
-                                </button>
-                                <button>
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                                    </svg>
-                                </button>
-                            </td>
-                        </tr>
+                    <?php } ?>
+
                     </tbody>
                 </table>
             </div>
@@ -112,28 +93,33 @@
                             </svg>
                         </button>
                     </div>
-                    <form class="px-6 pb-4 space-y-6 lg:px-8 sm:pb-6 xl:pb-8" action="#">
+                    <form class="px-6 pb-4 space-y-3 lg:px-8 sm:pb-6 xl:pb-8" action="./add-contact.php" method="post">
                         <h3 class="text-xl font-medium text-gray-900 dark:text-white">
                             add a new contact
                         </h3>
-                        <div>
-                            <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">name</label>
-                            <input type="text" name="name" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="name@company.com" required="" />
+                        <div class="flex flex-col">
+                            <label for="name">name</label>
+                            <input type="text" id="name" name="name" class="form-input" placeholder="contact name" required/>
                         </div>
-                        <div>
-                            <label for="phone" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">phone</label>
-                            <input type="tel" name="phone" id="phone" placeholder="+212600000000" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required="" />
+                        <div class="flex-col flex">
+                            <label for="phone">phone</label>
+                            <input type="tel" id="phone" name="phone" class="form-input" placeholder="contact phone" required/>
                         </div>
-                        <div>
-                            <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">email</label>
-                            <input type="email" name="email" id="email" placeholder="user@domain.com" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required="" />
+                        <div class="flex flex-col">
+                            <label for="email">email</label>
+                            <input type="email" id="email" name="email" class="form-input" placeholder="contact email" required/>
                         </div>
-                        <div>
-                            <label for="adress" class="block text-sm font-medium text-gray-900 dark:text-gray-300">adress</label>
-                            <input type="text" name="adress" id="adress" placeholder="adress" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required="" />
+                        <div class="flex flex-col">
+                            <label for="address">Address</label>
+                            <textarea name="address" id="address" class="form-input" placeholder="contact address"></textarea>
+                        </div>
+<!--                        user id for saving to the database-->
+                        <input type="hidden" name="user_fk" value="<?=$_SESSION['id']?>">
+                        <div class="flex justify-end">
+                            <button type="button" class="text-gray-900 bg-gray-100 hover:bg-gray-200 hover:text-gray-900 rounded text-sm px-3 mr-3 dark:hover:bg-gray-800 dark:hover:text-white" data-modal-toggle="authentication-modal">cancel</button>
+                            <input type="submit" name="add" class="bg-blue-500 hover:bg-blue-700 rounded font-bold py-1 px-3 form-input" />
                         </div>
 
-                        <input type="submit" value="save" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" />
                     </form>
                 </div>
             </div>
@@ -143,3 +129,4 @@
 </body>
 
 </html>
+<?php } ?>
