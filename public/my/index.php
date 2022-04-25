@@ -1,6 +1,8 @@
 <?php
 session_start();
-if (isset($_SESSION['username'])){
+if (!isset($_SESSION['username'])){
+    header('location: ../index.php');
+}else{
 
 ?>
 
@@ -25,8 +27,9 @@ if (isset($_SESSION['username'])){
             </ul>
         </div>
     </header>
-    <main class="flex-grow bg-slate-300">
-        <div class="">Welcome, user</div>
+    <main class="flex-grow bg-slate-300 flex justify-center items-center">
+        <div class="shadow p-5 bg-gray-100">
+        <span class="font-bold">Welcome, <?=$_SESSION['username']?></span>
         <div>
             <h2>Your Profile</h2>
             <hr />
@@ -35,6 +38,7 @@ if (isset($_SESSION['username'])){
             <p>Signup date: <span><?php echo $_SESSION['signup_date'];?></span></p>
             <hr />
             <p>Last login: <span><?php echo $_SESSION['last_login'];?></span></p>
+        </div>
         </div>
     </main>
 </body>

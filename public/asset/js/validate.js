@@ -1,88 +1,100 @@
-const form = document.getElementById("form");
-const fullName = document.getElementById('fullName');
-const email = document.getElementById('email');
-const phone = document.getElementById('phone');
-const password = document.getElementById('password');
-const passwordConfirm = document.getElementById('passwordConfirm');
-let isValid = true;
+const username = document.getElementById('username');
+const pass = document.getElementById('password');
+const verPass = document.getElementById('ver_password');
 
-const isValidEmail = email => {
-    const regemail = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(String(email).toLowerCase());
+
+let isValidSignup = false,
+    isValidLogin = false;
+
+const isValidUsername = username => {
+    const re = /^[a-z0-9_-]{3,15}$/gm;
+    return re.test(String(username).toLowerCase());
 }
 
-const isValidPhone = phone => {
-    const re = /(\+212|0)([ \-_/]*)(\d[ \-_/]*){9}/g;
-    return re.test(String(phone).toLowerCase());
+const isValidPass = pass => {
+    const re = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/;
+    return re.test(String(pass).toLowerCase());
 }
 
-form.addEventListener("submit", e => {
-    validateInputs()
-    if (!isValid){
-        e.preventDefault();
-    }
-});
-
-const validateInputs = () => {
+const validateSignup = () => {
     //former variable + Value = former variable + trim();
-    const fullNameValue = fullName.value.trim();
-    const emailValue = email.value.trim();
-    const phoneValue = phone.value.trim();
-    const passwordValue = password.value.trim();
-    const passwordConfirmValue = passwordConfirm.value.trim();
+    const usernameValue = username.value.trim();
+    const passwordValue = pass.value.trim();
+    const passwordConfirmValue = verPass.value.trim();
 
+    let isUser = false,
+        isPass = false,
+        isVerPss = false;
     // checking the full name
-    if (fullNameValue === ''){
-        setError(fullName, 'please provide your full name');
-        isValid = false;
-    } else {
-        setSuccess(fullName);
-        isValid = true;
+    if (usernameValue === ''){
+        setError(username, 'please choose a username');
     }
-    //checking the email
-    if(emailValue === '') {
-        setError(email, 'Email is required');
-        isValid = false
-    } else if (!isValidEmail(emailValue)) {
-        setError(email, 'Provide a valid email address');
-        isValid = false
-    } else {
-        setSuccess(email);
-        isValid = true;
+    else if(!isValidUsername(usernameValue)) {
+        setError(username, 'please enter a valid username');
+    }else {
+        setSuccess(username);
+        isUser = true;
     }
-    //checking the phone number
-    if(phoneValue === '') {
-        setError(phone, 'Phone number is required');
-        isValid = false
-    } else if (!isValidPhone(phoneValue)) {
-        setError(phone, 'Provide a valid phone number');
-        isValid = false
-    } else {
-        setSuccess(phone);
-        isValid = true;
-    }
+
 
     if(passwordValue === '') {
-        setError(password, 'Password is required');
-        isValid = false
-    } else if (passwordValue.length < 8 ) {
-        setError(password, 'Password must be at least 8 character.')
-        isValid = false
+        setError(pass, 'Password is required');
+    } else if (!isValidPass(passwordValue)) {
+        setError(pass, 'Password must be at least 6 character and contains 1 number.')
     } else {
-        setSuccess(password);
-        isValid = true;
+        setSuccess(pass);
+        isPass = true;
     }
 
     if(passwordConfirmValue === '') {
-        setError(passwordConfirm, 'Please confirm your password');
-        isValid = false
+        setError(verPass, 'Please confirm your password');
     } else if (passwordConfirmValue !== passwordValue) {
-        setError(passwordConfirm, "Passwords doesn't match");
-        isValid = false
+        setError(verPass, "Password doesn't match");
     } else {
-        setSuccess(passwordConfirm);
-        isValid = true;
+        setSuccess(verPass);
+        isVerPss = true;
     }
+
+    if(isUser && isPass && isVerPss){
+        isValidSignup = true;
+    }
+
+    return isValidSignup;
+}
+
+const validateLogin = () => {
+    //former variable + Value = former variable + trim();
+    const usernameValue = username.value.trim();
+    const passwordValue = pass.value.trim();
+
+    let isUserLogin = false,
+        isPassLogin = false;
+    // checking username
+    if (usernameValue === ''){
+        setError(username, 'enter your username');
+    }
+    else if(!isValidUsername(usernameValue)) {
+        setError(username, 'please enter a valid username');
+    }else {
+        setSuccess(username);
+        isUserLogin = true;
+    }
+
+
+    if(passwordValue === '') {
+        setError(pass, 'Password is required');
+    } else if (!isValidPass(passwordValue)) {
+        setError(pass, 'invalid password')
+    } else {
+        setSuccess(pass);
+        isPassLogin = true;
+    }
+
+    if(isUserLogin && isPassLogin){
+        isValidLogin = true;
+    }
+
+    return isValidLogin;
 }
 
 function setError(element, message){

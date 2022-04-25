@@ -6,6 +6,9 @@ $contact = new Contact();
 $id = $_GET['id'];
 $contact->setId($id);
 
+$record = $contact->fetchOneContact();
+$val = $record[0];
+
 if (isset($_POST['edit'])){
     $contact->setName($_POST['name']);
     $contact->setEmail($_POST['email']);
@@ -13,10 +16,9 @@ if (isset($_POST['edit'])){
     $contact->setAddress($_POST['address']);
 
     $contact->update();
-    echo '<script>alert("updated!");document.location.href="index.php";</script>';
+    echo '<script>document.location.href="index.php";</script>';
 }
-$record = $contact->fetchOneContact();
-$val = $record[0];
+
 ?>
 
 <!DOCTYPE html>
