@@ -25,8 +25,8 @@ $contacts = $data->fetchData($_SESSION['id']);
 </head>
 
 <body class="flex flex-col h-screen">
-    <header class="bg-slate-800 flex justify-between">
-        <h1 class="text-white font-medium text-3xl">Contacts list</h1>
+    <header class="bg-slate-800 flex justify-between items-center px-10">
+        <h1 class="text-amber-300 font-medium text-3xl">Contacts Manager</h1>
         <div>
             <ul>
                 <li><a href="../" class="text-blue-300">Profile</a></li>
@@ -36,17 +36,22 @@ $contacts = $data->fetchData($_SESSION['id']);
         </div>
     </header>
     <main class="flex-grow bg-slate-300">
+        <div class="lg:container mx-auto">
         <div class="flex justify-between px-5 py-3">
-            <div class="text-3xl">contacts</div>
+            <div class="text-3xl text-blue-700"> My contacts</div>
             <button class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button" data-modal-toggle="authentication-modal">
                 add contact
             </button>
         </div>
         <div>
-            <h2>contact list:</h2>
+            <?php
+            if (!$contacts){
+                echo '<p class="text-red-700">you have no contacs yet</p>';
+            } else {
+            ?>
             <!-- contacts table -->
-            <div>
-                <table class=" border-b table-auto  m-auto md:w-3/4 bg-gray-100 text-sm text-left text-gray-900">
+            <div class="max-w-full overflow-x-auto px-3">
+                <table class="border-b table-auto w-full  m-auto md:w-3/4 bg-gray-100 text-lg text-left text-gray-900">
                     <thead>
                         <tr>
                             <th class="border-r">Name</th>
@@ -83,6 +88,7 @@ $contacts = $data->fetchData($_SESSION['id']);
                     </tbody>
                 </table>
             </div>
+                <?php }?>
         </div>
         <!-- add contact modal -->
         <div id="authentication-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full justify-center items-center">
@@ -125,6 +131,7 @@ $contacts = $data->fetchData($_SESSION['id']);
                     </form>
                 </div>
             </div>
+        </div>
         </div>
     </main>
     <script src="https://unpkg.com/flowbite@1.4.1/dist/flowbite.js"></script>
