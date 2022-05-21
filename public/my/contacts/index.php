@@ -25,15 +25,13 @@ $contacts = $data->fetchData($_SESSION['id']);
 </head>
 
 <body class="flex flex-col h-screen">
-    <header class="bg-slate-800 flex justify-between items-center px-10">
-        <h1 class="text-amber-300 font-medium text-3xl">Contacts Manager</h1>
-        <div>
-            <ul>
-                <li><a href="../" class="text-blue-300">Profile</a></li>
-                <li><a href="./contacts/" class="text-blue-300">Contacts</a></li>
-                <li><a href="../../includes/logout.inc.php" class="text-blue-300">logout</a></li>
-            </ul>
-        </div>
+    <header class="bg-slate-800 md:flex md:px-10 justify-between items-center py-3 ">
+        <h1 class="text-amber-300 font-medium text-2xl md:text-3xl flex justify-center">Contacts Manager</h1>
+        <ul class="mt-2 md:mt-0 flex justify-evenly">
+            <li class="md:mr-10"><a href="../" class="text-blue-300 ">profile</a></li>
+            <li class="md:mr-10"><a href="./contacts/" class="text-blue-700">Contacts</a></li>
+            <li ><a href="../../includes/logout.inc.php" class="text-blue-300">logout</a></li>
+        </ul>
     </header>
     <main class="flex-grow bg-slate-300">
         <div class="lg:container mx-auto">
@@ -46,7 +44,7 @@ $contacts = $data->fetchData($_SESSION['id']);
         <div>
             <?php
             if (!$contacts){
-                echo '<p class="text-red-700">you have no contacs yet</p>';
+                echo '<p class="text-red-700">you have no contacts yet</p>';
             } else {
             ?>
             <!-- contacts table -->
@@ -54,11 +52,11 @@ $contacts = $data->fetchData($_SESSION['id']);
                 <table class="border-b table-auto w-full  m-auto md:w-3/4 bg-gray-100 text-lg text-left text-gray-900">
                     <thead>
                         <tr>
-                            <th class="border-r">Name</th>
-                            <th class="border-r">Email</th>
-                            <th class="border-r">Phone</th>
-                            <th class="border-r">Address</th>
-                            <th class="border-r">Actions</th>
+                            <th class="border-r p-3">Name</th>
+                            <th class="border-r p-3">Email</th>
+                            <th class="border-r p-3">Phone</th>
+                            <th class="border-r p-3">Address</th>
+                            <th class="border-r p-3">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -66,17 +64,17 @@ $contacts = $data->fetchData($_SESSION['id']);
                     foreach ($contacts as $value){?>
 
                         <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                            <td class="border-r"><?=$value->name?></td>
-                            <td class="border-r"><?=$value->email?></td>
-                            <td class="border-r"><?=$value->phone?></td>
-                            <td class="border-r"><?=$value->address?></td>
-                            <td class="border-r">
-                                <button onclick="document.location.href='edit-contact.php?id=<?=$value->id?>'">
+                            <td class="border-r p-2"><?=$value->name?></td>
+                            <td class="border-r p-2"><?=$value->email?></td>
+                            <td class="border-r p-2"><?=$value->phone?></td>
+                            <td class="border-r p-2"><?=$value->address?></td>
+                            <td class="border-r p-2 flex justify-evenly">
+                                <button class="bg-yellow-300 rounded px-3 py-1" onclick="document.location.href='edit-contact.php?id=<?=$value->id?>'">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                                     </svg>
                                 </button>
-                                <button onclick="confirmDelete(<?=$value->id?>)">
+                                <button class="bg-red-500 rounded px-3 py-1" onclick="confirmDelete(<?=$value->id?>)">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                                     </svg>

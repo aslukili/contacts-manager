@@ -17,16 +17,14 @@ if (!isset($_SESSION['username'])){
 </head>
 
 <body class="flex flex-col h-screen">
-    <header class="bg-slate-800 flex justify-between">
-        <h1 class="text-white font-medium text-3xl">Contacts list</h1>
-        <div class="p-5">
-            <ul>
-                <li><a href="#" class="text-blue-300"><?php echo $_SESSION['username'];?></a></li>
-                <li><a href="./contacts/" class="text-blue-300">Contacts</a></li>
-                <li> <a href="../includes/logout.inc.php" class="text-blue-300">logout</a></li>
-            </ul>
-        </div>
-    </header>
+<header class="bg-slate-800 md:grid md:grid-cols-2  justify-between items-center py-3 ">
+    <h1 class="text-amber-300 font-medium text-2xl md:text-3xl flex justify-center">Contacts Manager</h1>
+    <ul class="mt-2 md:mt-0 flex justify-evenly ">
+        <li><a href="../" class="text-blue-700">profile</a></li>
+        <li><a href="./contacts/" class="text-blue-300">Contacts</a></li>
+        <li><a href="../../includes/logout.inc.php" class="text-blue-300">logout</a></li>
+    </ul>
+</header>
     <main class="flex-grow bg-slate-300 flex justify-center items-center">
         <div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-md">
             <div class="md:flex">

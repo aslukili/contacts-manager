@@ -17,11 +17,11 @@ $test->connect();
 </head>
 
 <body class="flex flex-col h-screen">
-    <header class="bg-slate-800 flex justify-between items-center px-10">
+    <header class="bg-slate-800 flex justify-between items-center px-10 py-3">
         <h1 class="text-amber-300 font-medium text-3xl">Contacts Manager</h1>
         <div>
             <a class="text-amber-300 px-3" href="login.php">login</a>
-            <a class="text-gray-900 bg-amber-100 border-2 border-amber-300 rounded py-1 px-3" href="signup.php">Sign up</a>
+            <a class="text-gray-900 bg-amber-200 hover:border-2 hover:border-amber-300 rounded py-1 px-3 hover:bg-slate-800 hover:text-amber-300" href="signup.php">Sign up</a>
         </div>
     </header>
     <main class="flex-grow text-center flex justify-center items-center flex-col bg-contacts bg-no-repeat bg-cover bg-center" >
@@ -34,7 +34,7 @@ $test->connect();
                 Already have an account?
                 <a href="./login.php" class="text-amber-300">login here</a>
             </p>
-            <button class="bg-amber-200 text-gray-900 font-bold rounded px-10 py-3 border-amber-300 border-2 mt-7" onclick="document.location.href='signup.php'">get started</button>
+            <button class="bg-amber-200 text-gray-900 font-bold rounded px-10 py-3 border-amber-300 border-2 mt-7 hover:bg-transparent hover:text-amber-300" onclick="document.location.href='signup.php'">get started</button>
         </div>
     </main>
 </body>
