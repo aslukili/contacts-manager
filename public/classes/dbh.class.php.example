@@ -1,0 +1,20 @@
+<?php
+class Dbh {
+    private string $host = "localhost";
+    private string $user = "root";
+    private string $password = "password";
+    private string $dbName = "contacts";
+
+    public function connect(){
+        try {
+            //setting the dsn (data source name)
+            $dsn = 'mysql:host='.$this->host . ';dbname=' . $this->dbName;
+            $pdo = new PDO($dsn, $this->user, $this->password);
+            $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
+            return $pdo;
+        }
+        catch (PDOException $e){
+            echo "connection to the database failed! " . $e->getMessage();
+        }
+    }
+}
